@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================ -->
+<!-- 【要改的地方 1】網站標題（瀏覽器分頁會顯示） -->
+<!-- ============================================ -->
+<title>科學班成發｜Veritas</title>
+
+<!-- ============================================ -->
+<!-- 【要改的地方 2】網站描述（分享到社群時會顯示） -->
+<!-- ============================================ -->
+<meta name="description" content="竹科實中第16屆科學班班級成發">
+
+<!-- 載入字型（不用改） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,600&family=Noto+Serif+TC:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   【要改的地方 3】配色（想換顏色就改這裡）
+   ============================================ */
+:root {
+  --bg: #f4f0e8;           /* 背景色（米白）*/
+  --ink: #1a1a1a;          /* 主要文字（深黑）*/
+  --accent: #c44536;       /* 強調色（磚紅）*/
+  --muted: #8b7e6a;        /* 淺色文字（暖灰）*/
+  --paper: #ebe4d4;        /* 卡片底色 */
+  --line: #d6cdb8;         /* 線條 */
+}
+
+/* 基本重置 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Serif TC', 'Fraunces', serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+  /* 加一點紙張質感 */
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(196,69,54,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139,126,106,0.04) 0%, transparent 50%);
+}
+
+/* 噪點質感（讓畫面有老照片的感覺）*/
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+/* ============================================
+   導覽列（網頁上方的選單）
+   ============================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(244, 240, 232, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+}
+
+.nav-links { display: flex; gap: 32px; list-style: none; }
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+/* ============================================
+   Hero 首頁大標題區
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.hero-label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+  animation: fadeUp 1.2s ease-out 0.2s both;
+}
+
+.hero h1 .italic {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.hero-meta {
+  display: flex;
+  gap: 48px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease-out 0.6s both;
+}
+
+.hero-meta-item {
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+}
+
+.hero-meta-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.hero-meta-value {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* 裝飾的大數字 */
+.hero-year {
+  position: absolute;
+  right: -20px;
+  bottom: 60px;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(6rem, 20vw, 16rem);
+  font-weight: 900;
+  color: var(--accent);
+  opacity: 0.08;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   區塊通用樣式
+   ============================================ */
+section { padding: 120px 0; position: relative; }
+
+.section-label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 64px;
+  max-width: 900px;
+}
+
+.section-title .italic { font-style: italic; font-weight: 300; }
+
+/* ============================================
+   關於我們
+   ============================================ */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-intro {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+.about-text { font-size: 1.1rem; color: var(--ink); }
+
+.about-text p { margin-bottom: 24px; }
+
+.about-text p:first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 12px 0 0;
+  color: var(--accent);
+}
+
+/* ============================================
+   作品/活動展示（卡片網格）
+   ============================================ */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.work-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(26,26,26,0.1);
+}
+
+.work-image {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--line), var(--muted));
+  overflow: hidden;
+  position: relative;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.work-card:hover .work-image img { transform: scale(1.05); }
+
+/* 圖片還沒放時顯示的編號 */
+.work-image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--bg);
+  font-style: italic;
+}
+
+.work-content { padding: 32px; }
+
+.work-number {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.work-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.work-desc { color: var(--muted); font-size: 0.95rem; }
+
+/* ============================================
+   影片區
+   ============================================ */
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* ============================================
+   時間軸 / 活動紀錄
+   ============================================ */
+.timeline { max-width: 800px; }
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.timeline-date {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.timeline-content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.timeline-content p { color: var(--muted); }
+
+/* ============================================
+   成員名單
+   ============================================ */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.member {
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.member:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.member-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.member-role {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ============================================
+   Footer 頁尾
+   ============================================ */
+footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--line);
+  margin-top: 80px;
+  text-align: center;
+}
+
+.footer-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 24px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   手機版調整
+   ============================================ */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  nav { padding: 16px 20px; }
+  .nav-links { gap: 16px; font-size: 0.85rem; }
+  .nav-links a { font-size: 0.85rem; }
+  .hero-meta { gap: 24px; }
+  .about { grid-template-columns: 1fr; gap: 40px; }
+  .about-intro { font-size: 1.5rem; }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  section { padding: 80px 0; }
+}
+
+/* 滾動進場動畫 */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- 導覽列 -->
+<!-- 【要改的地方 4】左邊 logo 的文字（例如班級名稱縮寫） -->
+<!-- ============================================ -->
+<nav>
+  <div class="nav-logo">竹科實中第16屆科學班班級成發</div>
+  <ul class="nav-links">
+    <li><a href="#about">關於</a></li>
+    <li><a href="#works">作品</a></li>
+    <li><a href="#video">影片</a></li>
+    <li><a href="#timeline">紀錄</a></li>
+    <li><a href="#members">成員</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================ -->
+<!-- Hero 首頁大標題 -->
+<!-- 【要改的地方 5】成發主標題、副標題、班級資訊 -->
+<!-- ============================================ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-label">2026 Achievement Showcase</div>
+    <h1>
+      真理<span class="italic">。</span><br>
+      我們的<span class="italic">一年</span>
+    </h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Class</div>
+        <div class="hero-meta-value">H205 班</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Year</div>
+        <div class="hero-meta-value">2025 – 2026</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Members</div>
+        <div class="hero-meta-value">25 位同學</div>
+      </div>
+    </div>
+    <div class="hero-year">Veritas</div>
+  </div>
+</header>
+
+<!-- ============================================ -->
+<!-- 關於我們 -->
+<!-- 【要改的地方 6】介紹文字 -->
+<!-- ============================================ -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">— About</div>
+    <h2 class="section-title">關於<span class="italic">Veritas</span></h2>
+    <div class="about">
+      <div class="about-intro reveal">
+        Veritas 一詞源自拉丁語，意為「真理」。
+      </div>
+      <div class="about-text reveal">
+        <p>真正的研究從不是一條筆直的路。我們或許曾經迷惘、曾經懷疑，但始終相信——唯有透過嚴謹的實驗驗證，抽絲剝繭、克服挑戰，追尋答案的過程才如此迷人。</p>
+        <p>理想與現實交會的此刻，誠摯邀請您與我們一同見證，這場關於青春與探索的交融。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 作品/活動展示 -->
+<!-- 【要改的地方 7】每張卡片的照片、標題、說明 -->
+<!-- 如果要放照片：把 images/work1.jpg 換成你的圖片檔案路徑 -->
+<!-- ============================================ -->
+<section id="works">
+  <div class="container">
+    <div class="section-label">— Showcase</div>
+    <h2 class="section-title">我們的<span class="italic">作品</span></h2>
+    <div class="works-grid">
+
+      <!-- 卡片 1 -->
+      <article class="work-card reveal">
+        <div class="work-image">
+          <!-- 放照片時把下面這行的註解拿掉，並改檔名 -->
+          <!-- <img src="images/work1.jpg" alt="作品一"> -->
+          <div class="work-image-placeholder">01</div>
+        </div>
+        <div class="work-content">
+          <div class="work-number">Project 01</div>
+          <h3 class="work-title">迎新晚會</h3>
+          <p class="work-desc">九月的那個晚上，所有人第一次坐在一起。緊張、尷尬、然後慢慢變熟。</p>
+        </div>
+      </article>
+
+      <!-- 卡片 2 -->
+      <article class="work-card reveal">
+        <div class="work-image">
+          <!-- <img src="images/work2.jpg" alt="作品二"> -->
+          <div class="work-image-placeholder">02</div>
+        </div>
+        <div class="work-content">
+          <div class="work-number">Project 02</div>
+          <h3 class="work-title">校慶舞蹈</h3>
+          <p class="work-desc">練了一個月的舞，上台三分鐘。結束後大家抱在一起大哭。</p>
+        </div>
+      </article>
+
+      <!-- 卡片 3 -->
+      <article class="work-card reveal">
+        <div class="work-image">
+          <!-- <img src="images/work3.jpg" alt="作品三"> -->
+          <div class="work-image-placeholder">03</div>
+        </div>
+        <div class="work-content">
+          <div class="work-number">Project 03</div>
+          <h3 class="work-title">班級旅遊</h3>
+          <p class="work-desc">南下的那三天，遊覽車上的歌聲、海邊的日落、深夜的宵夜。</p>
+        </div>
+      </article>
+
+      <!-- 卡片 4 -->
+      <article class="work-card reveal">
+        <div class="work-image">
+          <!-- <img src="images/work4.jpg" alt="作品四"> -->
+          <div class="work-image-placeholder">04</div>
+        </div>
+        <div class="work-content">
+          <div class="work-number">Project 04</div>
+          <h3 class="work-title">期末成發</h3>
+          <p class="work-desc">所有努力的集大成。佈置會場到凌晨，演出當天手心全是汗。</p>
+        </div>
+      </article>
+
+      <!-- 如果還要更多卡片，把下面這段複製貼上再改就好 -->
+      <!--
+      <article class="work-card reveal">
+        <div class="work-image">
+          <div class="work-image-placeholder">05</div>
+        </div>
+        <div class="work-content">
+          <div class="work-number">Project 05</div>
+          <h3 class="work-title">活動名稱</h3>
+          <p class="work-desc">說明文字</p>
+        </div>
+      </article>
+      -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 影片嵌入（YouTube） -->
+<!-- 【要改的地方 8】把 YouTube 影片 ID 換成你的 -->
+<!-- 例：影片網址是 https://www.youtube.com/watch?v=ABC123XYZ -->
+<!-- 就把 dQw4w9WgXcQ 換成 ABC123XYZ -->
+<!-- ============================================ -->
+<section id="video">
+  <div class="container">
+    <div class="section-label">— Video</div>
+    <h2 class="section-title">成發<span class="italic">實況</span></h2>
+    <div class="video-wrap reveal">
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="成發影片"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 時間軸 / 活動紀錄 -->
+<!-- 【要改的地方 9】重要日期和事件 -->
+<!-- ============================================ -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-label">— Timeline</div>
+    <h2 class="section-title">一年<span class="italic">紀事</span></h2>
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2025.09</div>
+        <div class="timeline-content">
+          <h3>開學第一天</h3>
+          <p>30 個陌生人第一次走進同一間教室。</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2025.11</div>
+        <div class="timeline-content">
+          <h3>校慶</h3>
+          <p>全班一起上台跳舞，結果大家都記住了那首歌。</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2026.01</div>
+        <div class="timeline-content">
+          <h3>期中考週</h3>
+          <p>教室的燈到半夜還亮著，但沒人真的在讀書。</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2026.03</div>
+        <div class="timeline-content">
+          <h3>班級旅遊</h3>
+          <p>三天兩夜的南下行，每個人都帶了太多零食。</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2026.06</div>
+        <div class="timeline-content">
+          <h3>期末成發</h3>
+          <p>一年的總結，所有人都上台了。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 成員名單 -->
+<!-- 【要改的地方 10】同學姓名和職務 -->
+<!-- ============================================ -->
+<section id="members">
+  <div class="container">
+    <div class="section-label">— Members</div>
+    <h2 class="section-title">我們<span class="italic">這群人</span></h2>
+    <div class="members-grid">
+      <div class="member reveal"><div class="member-name">王小明</div><div class="member-role">班長</div></div>
+      <div class="member reveal"><div class="member-name">陳小華</div><div class="member-role">副班長</div></div>
+      <div class="member reveal"><div class="member-name">李小美</div><div class="member-role">學藝股長</div></div>
+      <div class="member reveal"><div class="member-name">張小強</div><div class="member-role">康樂股長</div></div>
+      <div class="member reveal"><div class="member-name">林小雨</div><div class="member-role">總務股長</div></div>
+      <div class="member reveal"><div class="member-name">黃小安</div><div class="member-role">風紀股長</div></div>
+      <div class="member reveal"><div class="member-name">吳小婷</div><div class="member-role">衛生股長</div></div>
+      <div class="member reveal"><div class="member-name">劉小傑</div><div class="member-role">體育股長</div></div>
+      <!-- 繼續加同學：複製上面一行，改名字和職務即可 -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- Footer 頁尾 -->
+<!-- 【要改的地方 11】結尾金句和署名 -->
+<!-- ============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-quote reveal">
+      「我們來過，我們愛過，這就夠了。」
+    </div>
+    <div class="footer-meta">
+      © 2026 Class 205 · Made with ♡
+    </div>
+  </div>
+</footer>
+
+<!-- 滾動動畫（不用改） -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
