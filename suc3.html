@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Veritas｜竹科實中第16屆科學班成果發表會</title>
+<meta name="description" content="竹科實中第16屆科學班班級成發 — Veritas，2026.05.28 誠摯邀請">
+
+<!-- 字型：古書感襯線 + 霓虹英文 + 繁中 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500&family=Noto+Serif+TC:wght@300;500;700;900&family=Major+Mono+Display&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   配色 — 偵探復古 × 霓虹真理 雙重宇宙
+   ============================================ */
+:root {
+  /* 羊皮紙側 */
+  --parchment: #e8dcc4;
+  --parchment-dark: #d4c4a3;
+  --ink: #2a1f14;
+  --ink-soft: #5a4a35;
+  --gold: #b8935a;
+
+  /* 霓虹側 */
+  --night: #0a0c14;
+  --night-soft: #16192a;
+  --neon-cyan: #7fe8f2;
+  --neon-pink: #ff9ec7;
+  --neon-violet: #8a6fd4;
+
+  /* 強調色（呼應海報的霓虹青藍）*/
+  --accent: #5ac7d4;
+  --accent-warm: #c9a35a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Serif TC', 'Cormorant Garamond', serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+  overflow-x: hidden;
+  /* 羊皮紙漸層底 */
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(184,147,90,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(90,74,53,0.1) 0%, transparent 55%),
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+  background-attachment: fixed;
+}
+
+/* 噪點質感（羊皮紙粗糙感）*/
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 0 0.08 0 0 0 0.15 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; }
+
+/* ============================================
+   巴洛克角落裝飾（邀請卡風）
+   ============================================ */
+.ornament {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 0.35;
+  pointer-events: none;
+  color: var(--gold);
+}
+
+.ornament svg { width: 100%; height: 100%; }
+
+/* ============================================
+   導覽列
+   ============================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(232, 220, 196, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(184, 147, 90, 0.3);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.nav-logo .v-mark {
+  color: var(--accent);
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.nav-links { display: flex; gap: 36px; list-style: none; }
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  transition: color 0.3s;
+  position: relative;
+  font-family: 'Noto Serif TC', serif;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 50%;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: all 0.3s;
+}
+
+.nav-links a:hover::after { width: 100%; left: 0; }
+
+/* ============================================
+   Hero 首頁 — 日常 × 霓虹 分割視覺
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  position: relative;
+  padding-top: 72px;
+  overflow: hidden;
+}
+
+/* 左側：羊皮紙、偵探感 */
+.hero-left {
+  padding: 80px 60px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-kicker {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero-kicker::before {
+  content: '— ';
+  color: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 11vw, 9rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  animation: fadeUp 1.2s ease-out 0.15s both;
+}
+
+.hero-title-zh {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: var(--ink-soft);
+  margin-bottom: 48px;
+  animation: fadeUp 1.2s ease-out 0.3s both;
+}
+
+.hero-desc {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin-bottom: 48px;
+  animation: fadeUp 1.2s ease-out 0.45s both;
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 32px;
+  animation: fadeUp 1.2s ease-out 0.6s both;
+}
+
+.hero-meta-item {
+  border-left: 1px solid var(--gold);
+  padding-left: 14px;
+}
+
+.hero-meta-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.hero-meta-value {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* 右側：霓虹夜景 */
+.hero-right {
+  background: var(--night);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(127,232,242,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(255,158,199,0.12) 0%, transparent 50%),
+    linear-gradient(135deg, var(--night) 0%, var(--night-soft) 100%);
+}
+
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(127,232,242,0.03) 2px,
+    rgba(127,232,242,0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* 霓虹「真理」大字 */
+/* 霓虹「真理」書法字（圖片版） */
+.hero-neon {
+  position: relative;
+  z-index: 2;
+  height: clamp(280px, 50vh, 480px);
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: neonStartup 2s ease-out 0.4s both, fadeUp 1.5s ease-out 0.6s both;
+}
+
+/* 燈管本體：書法字 */
+.hero-neon img {
+  height: 100%;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  /* 縮小版光效：貼合筆畫的薄光層 */
+  filter:
+    drop-shadow(0 0 3px var(--neon-cyan))
+    drop-shadow(0 0 9px var(--neon-cyan))
+    drop-shadow(0 0 18px rgba(127, 232, 242, 0.4))
+    drop-shadow(1.5px 0 0 var(--neon-pink))
+    drop-shadow(-1.5px 0 0 rgba(255, 158, 199, 0.6));
+  animation: neonPulse 3s ease-in-out infinite, neonFlickerJitter 7s steps(1) infinite;
+}
+
+/* Veritas 小字霓虹招牌 */
+.hero-neon-sub {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Major Mono Display', monospace;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--neon-pink);
+  letter-spacing: 0.3em;
+  text-shadow:
+    0 0 4px var(--neon-pink),
+    0 0 12px var(--neon-pink),
+    0 0 24px rgba(255,158,199,0.5);
+  z-index: 2;
+  animation: neonBuzz 0.15s steps(2) infinite, fadeUp 1.5s ease-out 0.9s both;
+}
+
+@keyframes neonFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 8px var(--neon-cyan),
+      0 0 24px var(--neon-cyan),
+      0 0 48px var(--neon-cyan),
+      3px 0 0 var(--neon-pink),
+      -3px 0 0 var(--neon-pink);
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+}
+
+/* 書法字專用閃爍：影響圖片濾鏡 */
+@keyframes neonImgFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.55;
+  }
+}
+
+/* === 霓虹燈管核心動畫 === */
+
+/* 燈管啟動：剛載入時模擬「啪、啪、啪」啟動的瞬間 */
+@keyframes neonStartup {
+  0%   { opacity: 0; }
+  10%  { opacity: 0.6; }
+  12%  { opacity: 0; }
+  20%  { opacity: 0.8; }
+  22%  { opacity: 0.1; }
+  35%  { opacity: 1; }
+  38%  { opacity: 0.4; }
+  45%  { opacity: 1; }
+  47%  { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* 燈管脈動：乾淨的呼吸發光 */
+@keyframes neonPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 3px var(--neon-cyan))
+      drop-shadow(0 0 9px var(--neon-cyan))
+      drop-shadow(0 0 18px rgba(127, 232, 242, 0.4))
+      drop-shadow(1.5px 0 0 var(--neon-pink))
+      drop-shadow(-1.5px 0 0 rgba(255, 158, 199, 0.6));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 4px var(--neon-cyan))
+      drop-shadow(0 0 12px var(--neon-cyan))
+      drop-shadow(0 0 24px rgba(127, 232, 242, 0.55))
+      drop-shadow(1.5px 0 0 var(--neon-pink))
+      drop-shadow(-1.5px 0 0 rgba(255, 158, 199, 0.6));
+  }
+}
+
+/* 偶爾的微抽搐：模擬燈管不穩定的快閃 */
+@keyframes neonFlickerJitter {
+  0%, 100%   { opacity: 1; }
+  91.0%      { opacity: 1; }
+  91.5%      { opacity: 0.4; }
+  92.0%      { opacity: 1; }
+  92.5%      { opacity: 0.6; }
+  93.0%      { opacity: 1; }
+  /* 大部分時間都是 1，只有某瞬間會抽搐一下 */
+}
+
+@keyframes neonBuzz {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-1px); }
+}
+
+/* 分隔線漸變（接合處）*/
+.hero-divider {
+  position: absolute;
+  top: 72px; bottom: 0;
+  left: calc(52.38% - 1px);
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+  z-index: 3;
+  opacity: 0.4;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   區塊通用樣式
+   ============================================ */
+section { padding: 140px 0; position: relative; }
+
+.section-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-label::before { content: '— '; }
+.section-label::after { content: ' —'; }
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  margin-bottom: 80px;
+  color: var(--ink);
+}
+
+.section-title .accent {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 8px;
+}
+
+/* ============================================
+   關於 Veritas — 書信體設計
+   ============================================ */
+.about-wrap {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 70px;
+  background: rgba(255, 250, 235, 0.4);
+  border: 1px solid rgba(184, 147, 90, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(184, 147, 90, 0.15),
+    0 30px 60px rgba(42, 31, 20, 0.1);
+}
+
+.about-wrap .ornament-tl { top: 20px; left: 20px; }
+.about-wrap .ornament-tr { top: 20px; right: 20px; transform: scaleX(-1); }
+.about-wrap .ornament-bl { bottom: 20px; left: 20px; transform: scaleY(-1); }
+.about-wrap .ornament-br { bottom: 20px; right: 20px; transform: scale(-1, -1); }
+
+.about-salutation {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 40px;
+  letter-spacing: 0.05em;
+}
+
+.about-intro {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 36px;
+  letter-spacing: 0.03em;
+}
+
+.about-intro em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 2.1;
+}
+
+.about-text p { margin-bottom: 28px; letter-spacing: 0.02em; }
+
+.about-text p:first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 500;
+  font-style: italic;
+  float: left;
+  line-height: 0.85;
+  margin: 8px 14px 0 0;
+  color: var(--accent);
+}
+
+.about-signature {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(184, 147, 90, 0.3);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   活動資訊卡
+   ============================================ */
+/* ============================================
+   相關資訊容器（包住 event-card + countdown）
+   ============================================ */
+.event-info-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  padding: 40px;
+  border: 1px solid rgba(184, 147, 90, 0.4);
+  background:
+    linear-gradient(135deg, rgba(255, 250, 235, 0.3) 0%, rgba(232, 220, 196, 0.2) 100%);
+  box-shadow:
+    0 0 0 1px rgba(184, 147, 90, 0.15),
+    0 20px 50px rgba(42, 31, 20, 0.08);
+}
+
+/* 四個角的金色標記 */
+.event-info-wrap::before,
+.event-info-wrap::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--gold);
+  pointer-events: none;
+}
+
+.event-info-wrap::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.event-info-wrap::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* 右上與左下小角標 */
+.event-info-corner-tr,
+.event-info-corner-bl {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--gold);
+  pointer-events: none;
+}
+
+.event-info-corner-tr {
+  top: -1px;
+  right: -1px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.event-info-corner-bl {
+  bottom: -1px;
+  left: -1px;
+  border-right: none;
+  border-top: none;
+}
+
+/* 容器標題（上方的小 tag） */
+.event-info-tag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--parchment);
+  padding: 0 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.event-info-tag::before,
+.event-info-tag::after {
+  content: '◈';
+  color: var(--accent);
+  margin: 0 8px;
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+/* 容器內的中文副標 */
+.event-info-subtitle {
+  text-align: center;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.3em;
+  margin-bottom: 32px;
+  padding-top: 8px;
+}
+
+/* 容器內部卡片不需要自己的 max-width 和 margin */
+.event-info-wrap .event-card {
+  max-width: none;
+  margin: 0;
+}
+
+.event-info-wrap .countdown-wrap {
+  max-width: none;
+  margin: 24px 0 0;
+}
+
+/* 連接兩張卡片的裝飾線 */
+.event-info-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+  color: var(--gold);
+}
+
+.event-info-connector .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.5;
+  max-width: 120px;
+}
+
+.event-info-connector .diamond {
+  font-size: 0.8rem;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* ============================================
+   活動資訊卡（原本的 Date & Venue）
+   ============================================ */
+.event-card {
+  max-width: 900px;
+  margin: 60px auto 0;
+  padding: 48px;
+  background: var(--ink);
+  color: var(--parchment);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 140px;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(127,232,242,0.1) 100%);
+  pointer-events: none;
+}
+
+.event-card-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.event-card-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--parchment);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.event-card-date .month {
+  color: var(--neon-cyan);
+  font-style: italic;
+}
+
+.event-card-time {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  color: rgba(232, 220, 196, 0.7);
+  letter-spacing: 0.1em;
+}
+
+.event-card-venue-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.event-card-venue {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--parchment);
+}
+
+/* ============================================
+   倒數計時器 — 霓虹招牌風
+   ============================================ */
+.countdown-wrap {
+  max-width: 900px;
+  margin: 32px auto 0;
+  padding: 56px 48px;
+  background: var(--night);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* 掃描線質感 */
+.countdown-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(127, 232, 242, 0.03) 3px,
+    rgba(127, 232, 242, 0.03) 5px
+  );
+  pointer-events: none;
+}
+
+/* 背景霓虹光暈 */
+.countdown-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(127, 232, 242, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 50%, rgba(255, 158, 199, 0.08) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.countdown-label {
+  position: relative;
+  z-index: 2;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--neon-pink);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-shadow: 0 0 12px rgba(255, 158, 199, 0.5);
+}
+
+.countdown-label::before { content: '— '; }
+.countdown-label::after { content: ' —'; }
+
+.countdown-subtitle {
+  position: relative;
+  z-index: 2;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: rgba(232, 220, 196, 0.7);
+  letter-spacing: 0.2em;
+  margin-bottom: 40px;
+}
+
+.countdown-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number {
+  font-family: 'Major Mono Display', monospace;
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: white;
+  letter-spacing: 0.02em;
+  text-shadow:
+    0 0 6px var(--neon-cyan),
+    0 0 18px var(--neon-cyan),
+    0 0 36px rgba(127, 232, 242, 0.5),
+    2px 0 0 var(--neon-pink),
+    -2px 0 0 rgba(255, 158, 199, 0.6);
+  animation: numberGlow 3s ease-in-out infinite;
+}
+
+.countdown-label-small {
+  margin-top: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.countdown-colon {
+  font-family: 'Major Mono Display', monospace;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--neon-pink);
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(255, 158, 199, 0.6);
+  transform: translateY(-12px);
+  animation: colonBlink 1s steps(2) infinite;
+}
+
+@keyframes numberGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 6px var(--neon-cyan),
+      0 0 18px var(--neon-cyan),
+      0 0 36px rgba(127, 232, 242, 0.5),
+      2px 0 0 var(--neon-pink),
+      -2px 0 0 rgba(255, 158, 199, 0.6);
+  }
+  50% {
+    text-shadow:
+      0 0 4px var(--neon-cyan),
+      0 0 12px var(--neon-cyan),
+      0 0 24px rgba(127, 232, 242, 0.3),
+      2px 0 0 var(--neon-pink),
+      -2px 0 0 rgba(255, 158, 199, 0.4);
+  }
+}
+
+@keyframes colonBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* 到期後顯示 */
+.countdown-ended {
+  position: relative;
+  z-index: 2;
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.3em;
+  text-shadow:
+    0 0 12px var(--neon-cyan),
+    0 0 36px var(--neon-cyan),
+    3px 0 0 var(--neon-pink),
+    -3px 0 0 var(--neon-pink);
+  animation: neonFlicker 4s ease-in-out infinite;
+  padding: 20px 0;
+}
+
+.countdown-ended-sub {
+  position: relative;
+  z-index: 2;
+  font-family: 'Major Mono Display', monospace;
+  font-size: 1.2rem;
+  color: var(--neon-pink);
+  letter-spacing: 0.3em;
+  margin-top: 12px;
+  text-shadow: 0 0 12px rgba(255, 158, 199, 0.6);
+}
+
+/* ============================================
+   作品展示卡片
+   ============================================ */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.work-card {
+  background: rgba(255, 250, 235, 0.55);
+  border: 1px solid rgba(184, 147, 90, 0.3);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  position: relative;
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+
+/* 左側科別色條 */
+.work-card::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 4px;
+  background: var(--subject-color, var(--accent));
+  transition: width 0.4s ease;
+}
+
+/* 右上角的案件編號浮水印 */
+.work-card::after {
+  content: attr(data-case);
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: 'Major Mono Display', monospace;
+  font-size: 0.7rem;
+  color: rgba(184, 147, 90, 0.5);
+  letter-spacing: 0.2em;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--subject-color, var(--accent));
+  box-shadow:
+    0 28px 50px rgba(42, 31, 20, 0.12),
+    0 0 0 1px var(--subject-color, var(--accent));
+}
+
+.work-card:hover::before { width: 6px; }
+
+/* 卡片頂部：編號 + 科別標籤 */
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.work-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 0.9;
+  color: var(--subject-color, var(--accent));
+  letter-spacing: -0.03em;
+}
+
+.work-number .hash {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 4px;
+  font-style: normal;
+  opacity: 0.6;
+}
+
+.work-subject {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  padding: 6px 14px;
+  border: 1px solid var(--subject-color, var(--accent));
+  color: var(--subject-color, var(--accent));
+  background: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* 作品名稱 */
+.work-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  flex-grow: 1;
+}
+
+.work-title.en {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+/* 底部資訊 */
+.work-meta {
+  padding-top: 20px;
+  border-top: 1px solid rgba(184, 147, 90, 0.25);
+  display: grid;
+  gap: 10px;
+}
+
+.work-meta-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 0.9rem;
+}
+
+.work-meta-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.work-meta-value {
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ============================================
+   科別配色（呼應雙重宇宙）
+   ============================================ */
+.subject-bio      { --subject-color: #5ac7d4; }  /* 生物 - 青綠 */
+.subject-chem     { --subject-color: #c9a35a; }  /* 化學 - 金黃 */
+.subject-phys     { --subject-color: #ff9ec7; }  /* 物理 - 霓虹粉 */
+.subject-info     { --subject-color: #8a6fd4; }  /* 資訊 - 霓虹紫 */
+.subject-math     { --subject-color: #7fe8f2; }  /* 數學 - 青藍 */
+.subject-astro    { --subject-color: #6a8ac8; }  /* 天文 - 深藍紫 */
+
+/* 科別分隔標題（可選） */
+.subject-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0 8px;
+  padding-top: 16px;
+}
+
+.subject-divider:first-child { margin-top: 0; padding-top: 0; }
+
+.subject-divider-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.subject-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  opacity: 0.4;
+}
+
+/* ============================================
+   影片區
+   ============================================ */
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(184, 147, 90, 0.4);
+  background: var(--ink);
+  box-shadow: 0 30px 80px rgba(42, 31, 20, 0.25);
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* ============================================
+   成員名單 — The Credits 電影演職員表風格
+   ============================================ */
+
+/* The Credits 大標題 */
+.credits-headline {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.credits-headline-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.credits-headline-en .period {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.credits-headline-zh {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.6em;
+  color: var(--gold);
+  text-indent: 0.6em; /* 補償 letter-spacing 視覺置中 */
+  text-transform: uppercase;
+}
+
+.credits-headline-zh::before { content: '— '; color: var(--gold); }
+.credits-headline-zh::after { content: ' —'; color: var(--gold); }
+
+/* 演職員表容器 */
+.credits-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* 單行：左標題 / 右成員 */
+.credits-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 40px;
+  align-items: baseline;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed rgba(184, 147, 90, 0.3);
+}
+
+.credits-row:last-child { border-bottom: none; }
+
+.credits-role {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.credits-names {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1.9;
+}
+
+.credits-names .name {
+  display: inline-block;
+  margin-right: 1.5em;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.credits-names .name:hover {
+  color: var(--accent);
+}
+
+/* 影片區塊（有子分類） */
+.credits-row.has-subgroups {
+  align-items: start;
+}
+
+.credits-subgroups {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.credits-subgroup {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
+  align-items: baseline;
+}
+
+.credits-subgroup-role {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  white-space: nowrap;
+}
+
+.credits-subgroup-names {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+/* 「為國爭光」特別處理 — 金色小星號 */
+.credits-row.special .credits-role {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.credits-row.special .credits-role::before {
+  content: '★ ';
+  color: var(--accent-warm);
+  font-size: 0.85em;
+  margin-right: 2px;
+  vertical-align: 0.05em;
+}
+
+.credits-row.special .credits-names {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.credits-row.special .credits-names .name {
+  position: relative;
+}
+
+.credits-row.special .credits-names .name::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 1.5em;
+  bottom: -3px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-warm), transparent);
+  opacity: 0.6;
+}
+
+/* 結尾的 -- The End -- */
+.credits-end {
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  opacity: 0.8;
+}
+
+.credits-end::before,
+.credits-end::after {
+  content: '◇';
+  margin: 0 16px;
+  color: var(--accent);
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+/* ============================================
+   聯絡我們
+   ============================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 32px;
+  background: rgba(255, 250, 235, 0.5);
+  border: 1px solid rgba(184, 147, 90, 0.35);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.45s ease;
+}
+
+/* 左側顏色色條（呼應作品卡） */
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 3px;
+  background: var(--gold);
+  transition: all 0.4s ease;
+}
+
+/* 右上角的 hover 浮現 → 圖示 */
+.contact-card::after {
+  content: '↗';
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  font-size: 1.6rem;
+  color: var(--gold);
+  opacity: 0.4;
+  transition: all 0.4s ease;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  background: rgba(255, 250, 235, 0.75);
+  box-shadow:
+    0 24px 48px rgba(42, 31, 20, 0.12),
+    0 0 0 1px var(--accent);
+}
+
+.contact-card:hover::before {
+  width: 5px;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(90, 199, 212, 0.6);
+}
+
+.contact-card:hover::after {
+  opacity: 1;
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 24px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.contact-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: 0.05em;
+}
+
+.contact-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+
+.contact-value-zh {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+/* IG 卡：用圓形頭像取代 SVG 圖示 */
+.contact-card .ig-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid rgba(184, 147, 90, 0.4);
+  background: var(--night);
+  transition: all 0.45s ease;
+  box-shadow: 0 4px 12px rgba(42, 31, 20, 0.1);
+}
+
+.contact-card .ig-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.contact-card:hover .ig-avatar {
+  border-color: var(--accent);
+  box-shadow:
+    0 6px 18px rgba(42, 31, 20, 0.15),
+    0 0 16px rgba(90, 199, 212, 0.4);
+  transform: rotate(-3deg);
+}
+
+.contact-card:hover .ig-avatar img {
+  transform: scale(1.08);
+}
+
+/* IG handle 用等寬字（霓虹招牌感） */
+.contact-value-mono {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  word-break: break-word;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+  padding: 100px 0 60px;
+  margin-top: 120px;
+  background: var(--ink);
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(127,232,242,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255,158,199,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.footer-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 300;
+  color: var(--neon-cyan);
+  margin-bottom: 24px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(127,232,242,0.3);
+}
+
+.footer-quote-zh {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  color: var(--parchment);
+  margin-bottom: 48px;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+}
+
+.footer-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 40px auto;
+  opacity: 0.5;
+}
+
+.footer-meta {
+  color: rgba(232, 220, 196, 0.5);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+.footer-ig {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--neon-pink);
+  text-decoration: none;
+  font-family: 'Major Mono Display', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  transition: text-shadow 0.3s;
+}
+
+.footer-ig:hover {
+  text-shadow: 0 0 12px var(--neon-pink);
+}
+
+/* ============================================
+   滾動進場動畫
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   手機版
+   ============================================ */
+@media (max-width: 900px) {
+  .container { padding: 0 24px; }
+  nav { padding: 14px 20px; }
+  .nav-logo { font-size: 1rem; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 0.8rem; letter-spacing: 0.05em; }
+
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 60px 24px; }
+  .hero-right { min-height: 50vh; padding: 40px 0; }
+  .hero-divider { display: none; }
+  .hero-neon { height: 240px; }
+  .hero-meta { gap: 20px; grid-template-columns: 1fr 1fr; }
+
+  .about-wrap { padding: 50px 28px; }
+  .about-intro { font-size: 1.15rem; }
+
+  .event-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
+  .event-card-date { font-size: 3rem; }
+
+  .event-info-wrap { padding: 28px 20px; }
+  .event-info-tag { font-size: 0.8rem; letter-spacing: 0.2em; padding: 0 16px; }
+  .event-info-subtitle { font-size: 0.95rem; letter-spacing: 0.2em; margin-bottom: 24px; }
+
+  .countdown-wrap { padding: 40px 20px; }
+  .countdown-grid {
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 4px;
+  }
+  .countdown-number { font-size: 2.4rem; }
+  .countdown-colon { font-size: 1.8rem; transform: translateY(-8px); }
+  .countdown-label-small { font-size: 0.7rem; letter-spacing: 0.15em; margin-top: 8px; }
+
+  .works-grid { gap: 20px; }
+  .work-card { padding: 28px 24px; min-height: auto; }
+  .work-number { font-size: 2.4rem; }
+  .work-title { font-size: 1.15rem; }
+  .work-title.en { font-size: 1.1rem; }
+  .work-meta-row { grid-template-columns: 60px 1fr; font-size: 0.85rem; }
+  .subject-divider-label { font-size: 0.95rem; letter-spacing: 0.15em; }
+
+  /* The Credits 手機版 */
+  .credits-row { grid-template-columns: 70px 1fr; gap: 20px; }
+  .credits-role { font-size: 0.95rem; letter-spacing: 0.25em; text-indent: 0.25em; }
+  .credits-names { font-size: 1rem; }
+  .credits-names .name { margin-right: 1em; }
+  .credits-subgroup { grid-template-columns: 56px 1fr; gap: 12px; }
+  .credits-subgroup-role { font-size: 0.85rem; letter-spacing: 0.2em; text-indent: 0.2em; }
+  .credits-subgroup-names { font-size: 0.95rem; }
+  .credits-headline-zh { font-size: 0.85rem; letter-spacing: 0.4em; }
+
+  /* 聯絡我們手機版 */
+  .contact-card { padding: 28px 24px; }
+  .contact-title { font-size: 1.1rem; }
+  .contact-value { font-size: 0.95rem; }
+
+  section { padding: 90px 0; }
+}
+
+@media (max-width: 480px) {
+  .hero-meta { grid-template-columns: 1fr; }
+  .hero-title { font-size: 4.5rem; }
+  .ornament { width: 50px; height: 50px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 導覽列 -->
+<nav>
+  <div class="nav-logo"><span class="v-mark">V.</span>Veritas · 16th</div>
+  <ul class="nav-links">
+    <li><a href="#about">關於</a></li>
+    <li><a href="#info">資訊</a></li>
+    <li><a href="#works">作品</a></li>
+    <li><a href="#video">影片</a></li>
+    <li><a href="#members">成員</a></li>
+    <li><a href="#contact">聯絡</a></li>
+  </ul>
+</nav>
+
+<!-- Hero — 日常 × 霓虹分割 -->
+<header class="hero">
+  <div class="hero-divider"></div>
+
+  <div class="hero-left">
+    <div class="hero-kicker">NEHS 16th · Science Class</div>
+    <h1 class="hero-title">Veritas</h1>
+    <div class="hero-title-zh">真 · 理</div>
+    <p class="hero-desc">
+      國立竹科實中第十六屆科學班<br>
+      專題成果發表會，誠摯邀請您一同見證<br>
+      這一年關於探究與驗證的旅程。
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Date</div>
+        <div class="hero-meta-value">2026.05.28</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Time</div>
+        <div class="hero-meta-value">13:00–17:00</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Venue</div>
+        <div class="hero-meta-value">竹科實中</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-neon">
+      <img src="images/veritas-calligraphy.png" alt="真理 Veritas">
+    </div>
+    <div class="hero-neon-sub">VERITAS</div>
+  </div>
+</header>
+
+<!-- 關於 Veritas -->
+<section id="about">
+  <div class="container">
+    <div style="text-align: center;">
+      <div class="section-label">About Veritas</div>
+      <h2 class="section-title">關於<span class="accent">Veritas</span></h2>
+    </div>
+
+    <div class="about-wrap reveal">
+      <div class="ornament ornament-tl">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <path d="M10,10 Q10,40 40,40 M10,10 Q30,10 30,30 M10,10 L10,50 M10,10 L50,10 M18,18 Q18,32 32,32"
+                stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="10" cy="10" r="2"/>
+          <path d="M10,60 Q25,55 25,70 Q25,80 15,75" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="ornament ornament-tr">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <path d="M10,10 Q10,40 40,40 M10,10 Q30,10 30,30 M10,10 L10,50 M10,10 L50,10 M18,18 Q18,32 32,32"
+                stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="10" cy="10" r="2"/>
+          <path d="M10,60 Q25,55 25,70 Q25,80 15,75" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="ornament ornament-bl">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <path d="M10,10 Q10,40 40,40 M10,10 Q30,10 30,30 M10,10 L10,50 M10,10 L50,10 M18,18 Q18,32 32,32"
+                stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="10" cy="10" r="2"/>
+          <path d="M10,60 Q25,55 25,70 Q25,80 15,75" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="ornament ornament-br">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <path d="M10,10 Q10,40 40,40 M10,10 Q30,10 30,30 M10,10 L10,50 M10,10 L50,10 M18,18 Q18,32 32,32"
+                stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="10" cy="10" r="2"/>
+          <path d="M10,60 Q25,55 25,70 Q25,80 15,75" stroke="currentColor" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="about-salutation">親愛的偵探先生／女士：</div>
+
+      <div class="about-intro">
+        Veritas 一詞源自拉丁語，意為<em>「真理」</em>。
+      </div>
+
+      <div class="about-text">
+        <p>真正的研究從不是一條筆直的路。我們或許曾經迷惘、曾經懷疑，但始終相信——唯有透過嚴謹的實驗驗證，抽絲剝繭、克服挑戰，追尋答案的過程才如此迷人。</p>
+        <p>理想與現實交會的此刻，誠摯邀請您與我們一同見證，這場關於青春與探索的交融。</p>
+      </div>
+
+      <div class="about-signature">
+        謹代表 竹科實中科學班 16th 全體同學 敬上
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 相關資訊（活動時間地點 + 倒數）-->
+<section id="info">
+  <div class="container">
+    <div style="text-align: center;">
+      <div class="section-label">Event Info</div>
+      <h2 class="section-title">相關<span class="accent">資訊</span></h2>
+    </div>
+
+    <div class="event-info-wrap reveal">
+      <!-- 四個角的金色裝飾 -->
+      <div class="event-info-corner-tr"></div>
+      <div class="event-info-corner-bl"></div>
+
+      <!-- 上方浮動標籤 -->
+      <div class="event-info-tag">Detective's Brief</div>
+
+      <!-- 中文副標 -->
+      <div class="event-info-subtitle">案件檔案 · File No. 16</div>
+
+      <!-- 活動時間地點卡 -->
+      <div class="event-card">
+        <div>
+          <div class="event-card-label">Date & Time</div>
+          <div class="event-card-date">05<span class="month">.28</span></div>
+          <div class="event-card-time">2026 · 13:00 — 17:00</div>
+        </div>
+        <div>
+          <div class="event-card-venue-label">Venue</div>
+          <div class="event-card-venue">
+            國立新竹科學園區<br>
+            實驗高級中等學校<br>
+            國際會議廳大廳
+          </div>
+        </div>
+      </div>
+
+      <!-- 兩卡之間的裝飾連接線 -->
+      <div class="event-info-connector">
+        <span class="line"></span>
+        <span class="diamond">◆</span>
+        <span class="line"></span>
+      </div>
+
+      <!-- 倒數計時器 -->
+      <div class="countdown-wrap" id="countdown">
+        <div class="countdown-label">Countdown to Veritas</div>
+        <div class="countdown-subtitle">距離真理揭曉，尚餘</div>
+
+        <div class="countdown-grid" id="countdown-grid">
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-days">00</div>
+            <div class="countdown-label-small">Days</div>
+          </div>
+          <div class="countdown-colon">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-hours">00</div>
+            <div class="countdown-label-small">Hours</div>
+          </div>
+          <div class="countdown-colon">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-minutes">00</div>
+            <div class="countdown-label-small">Minutes</div>
+          </div>
+          <div class="countdown-colon">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-seconds">00</div>
+            <div class="countdown-label-small">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 作品展示 -->
+<section id="works">
+  <div class="container">
+    <div style="text-align: center;">
+      <div class="section-label">Showcase · 10 Case Files</div>
+      <h2 class="section-title">專題<span class="accent">研究</span></h2>
+      <p style="font-family: 'Noto Serif TC', serif; color: var(--ink-soft); letter-spacing: 0.15em; margin-top: -48px; margin-bottom: 64px; font-size: 1.05rem;">
+        十份待解的研究案卷，依出場序編列
+      </p>
+    </div>
+
+    <div class="works-grid">
+
+      <!-- 01 生物 -->
+      <article class="work-card subject-bio reveal" data-case="CASE · 01">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>01
+          </div>
+          <div class="work-subject">生物</div>
+        </div>
+        <h3 class="work-title">烏賊的類 REM 睡眠</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">袁丞希 · 儲佑達 · 顏劭恩</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">焦傳金 教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 生物 -->
+      <article class="work-card subject-bio reveal" data-case="CASE · 02">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>02
+          </div>
+          <div class="work-subject">生物</div>
+        </div>
+        <h3 class="work-title">鐵凋亡藥物與 2-DG 對胰島腺癌的協同作用機制探討</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">溫蘇 · 王禹程 · 吳承庭</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">王雯靜 教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 生物 -->
+      <article class="work-card subject-bio reveal" data-case="CASE · 03">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>03
+          </div>
+          <div class="work-subject">生物</div>
+        </div>
+        <h3 class="work-title">果蠅 Scallop 基因對老化的影響</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">邱德倫 · 游凱捷 · 蘇宸宇</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 化學 -->
+      <article class="work-card subject-chem reveal" data-case="CASE · 04">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>04
+          </div>
+          <div class="work-subject">化學</div>
+        </div>
+        <h3 class="work-title">以炔烴探針修飾之銀奈米粒子及其應用</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">許伶綺 · 黃緯承 · 鄭琮翰</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 化學 -->
+      <article class="work-card subject-chem reveal" data-case="CASE · 05">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>05
+          </div>
+          <div class="work-subject">化學</div>
+        </div>
+        <h3 class="work-title en">Application of Granulated Metal–Organic Frameworks in Direct Water Harvesting</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Author</div>
+            <div class="work-meta-value">賴禹呈</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 物理 -->
+      <article class="work-card subject-phys reveal" data-case="CASE · 06">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>06
+          </div>
+          <div class="work-subject">物理</div>
+        </div>
+        <h3 class="work-title en">Constraints on Extra-Dimension Gravity by Muonic Hydrogen and Deuterium Spectroscopy</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Author</div>
+            <div class="work-meta-value">黃仲謙</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">洪在明 教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 物理 -->
+      <article class="work-card subject-phys reveal" data-case="CASE · 07">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>07
+          </div>
+          <div class="work-subject">物理</div>
+        </div>
+        <h3 class="work-title">混合液滴蒸發：馬蘭哥尼流與咖啡環效應</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">王聖文 · 李勻睿</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 資訊 -->
+      <article class="work-card subject-info reveal" data-case="CASE · 08">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>08
+          </div>
+          <div class="work-subject">資訊</div>
+        </div>
+        <h3 class="work-title">學術語境與平易語表之轉譯機制研究</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">林士庭 · 范恭哲 · 謝昀澤</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09 數學 -->
+      <article class="work-card subject-math reveal" data-case="CASE · 09">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>09
+          </div>
+          <div class="work-subject">數學</div>
+        </div>
+        <h3 class="work-title">QRcode 破壞者</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">林恩葳 · 陳秉太 · 陸竤穎</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">教授</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 天文 -->
+      <article class="work-card subject-astro reveal" data-case="CASE · 10">
+        <div class="work-header">
+          <div class="work-number">
+            <span class="hash">NO.</span>10
+          </div>
+          <div class="work-subject">天文</div>
+        </div>
+        <h3 class="work-title en">Constraining the Hubble Constant with 1180 Fast Radio Bursts from the CHIME/FRB Catalog 2 using Probabilistic Redshift Estimations</h3>
+        <div class="work-meta">
+          <div class="work-meta-row">
+            <div class="work-meta-label">Authors</div>
+            <div class="work-meta-value">劉信潔 · 劉前奕 · 蘇泓霖</div>
+          </div>
+          <div class="work-meta-row">
+            <div class="work-meta-label">Advisor</div>
+            <div class="work-meta-value">Prof. Tomo Goto</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 影片嵌入 -->
+<section id="video">
+  <div class="container">
+    <div class="section-label">Video</div>
+    <h2 class="section-title">成發<span class="accent">實況</span></h2>
+    <div class="video-wrap reveal">
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="成發影片"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- 成員名單 -->
+<section id="members">
+  <div class="container">
+    <!-- The Credits 大標題 -->
+    <div class="credits-headline reveal">
+      <div class="credits-headline-en">The Credits<span class="period">.</span></div>
+      <div class="credits-headline-zh">全體名單</div>
+    </div>
+
+    <!-- 演職員表 -->
+    <div class="credits-list">
+
+      <div class="credits-row reveal">
+        <div class="credits-role">總召</div>
+        <div class="credits-names">
+          <span class="name">温龢</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">副召</div>
+        <div class="credits-names">
+          <span class="name">李勻睿</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">主持人</div>
+        <div class="credits-names">
+          <span class="name">袁丞希</span>
+          <span class="name">林恩葳</span>
+          <span class="name">邱德倫</span>
+          <span class="name">顏劭恩</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">美宣</div>
+        <div class="credits-names">
+          <span class="name">游凱捷</span>
+          <span class="name">吳承庭</span>
+          <span class="name">黃緯承</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">文書</div>
+        <div class="credits-names">
+          <span class="name">劉信澤</span>
+          <span class="name">蘇宸宇</span>
+        </div>
+      </div>
+
+      <!-- 影片：有子分類 -->
+      <div class="credits-row has-subgroups reveal">
+        <div class="credits-role">影片</div>
+        <div class="credits-subgroups">
+          <div class="credits-subgroup">
+            <div class="credits-subgroup-role">導演</div>
+            <div class="credits-subgroup-names">
+              <span class="name">邱德倫</span>
+            </div>
+          </div>
+          <div class="credits-subgroup">
+            <div class="credits-subgroup-role">編劇</div>
+            <div class="credits-subgroup-names">
+              <span class="name">林恩葳</span>
+              <span class="name">吳承庭</span>
+              <span class="name">儲佑達</span>
+            </div>
+          </div>
+          <div class="credits-subgroup">
+            <div class="credits-subgroup-role">演員</div>
+            <div class="credits-subgroup-names">
+              <span class="name">王禹程</span>
+              <span class="name">王聖文</span>
+              <span class="name">邱德倫</span>
+              <span class="name">陸竑穎</span>
+              <span class="name">游凱捷</span>
+              <span class="name">賴禹呈</span>
+              <span class="name">謝昀澤</span>
+              <span class="name">顏劭恩</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">活動</div>
+        <div class="credits-names">
+          <span class="name">許伶綺</span>
+          <span class="name">王禹程</span>
+          <span class="name">吳承庭</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">公關</div>
+        <div class="credits-names">
+          <span class="name">劉信澤</span>
+          <span class="name">范恭哲</span>
+          <span class="name">王禹程</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">設備</div>
+        <div class="credits-names">
+          <span class="name">陸竑穎</span>
+          <span class="name">蘇泓霖</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">網管</div>
+        <div class="credits-names">
+          <span class="name">林士庭</span>
+        </div>
+      </div>
+
+      <div class="credits-row reveal">
+        <div class="credits-role">總務</div>
+        <div class="credits-names">
+          <span class="name">鄭琮翰</span>
+        </div>
+      </div>
+
+      <!-- 為國爭光（特別樣式） -->
+      <div class="credits-row special reveal">
+        <div class="credits-role">為國爭光</div>
+        <div class="credits-names">
+          <span class="name">劉前奕</span>
+          <span class="name">黃仲謙</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 結尾 -->
+    <div class="credits-end reveal">Fin</div>
+  </div>
+</section>
+
+<!-- 聯絡我們 -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align: center;">
+      <div class="section-label">Contact Us</div>
+      <h2 class="section-title">聯絡<span class="accent">我們</span></h2>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Gmail -->
+      <a class="contact-card reveal"
+         href="mailto:nehs16th@gmail.com">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+        </div>
+        <div class="contact-label">Email</div>
+        <div class="contact-title">寄信給我們</div>
+        <div class="contact-value">nehs16th@gmail.com</div>
+      </a>
+
+      <!-- Instagram -->
+      <a class="contact-card reveal"
+         href="https://www.instagram.com/nehs_16th_veritas"
+         target="_blank" rel="noopener">
+        <div class="ig-avatar">
+          <img src="images/ig-avatar.webp" alt="Veritas IG 頭像">
+        </div>
+        <div class="contact-label">Instagram</div>
+        <div class="contact-title">追蹤動態</div>
+        <div class="contact-value-mono">@nehs_16th_veritas</div>
+      </a>
+
+      <!-- Google Maps -->
+      <a class="contact-card reveal"
+         href="https://www.google.com/maps/search/?api=1&query=300新竹市東區介壽路300號+竹科實中"
+         target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contact-label">Location</div>
+        <div class="contact-title">活動地點</div>
+        <div class="contact-value-zh">
+          300 新竹市東區介壽路 300 號<br>
+          竹科實中 國際會議廳大廳
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container footer-content">
+    <div class="footer-quote reveal">
+      "Magna est veritas, et praevalebit."
+    </div>
+    <div class="footer-quote-zh reveal">
+      願真理與你我同在，直至永恆。
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-meta">
+      © 2026 · NEHS 16th Science Class · Veritas
+    </div>
+    <a href="https://www.instagram.com/nehs_16th_veritas" class="footer-ig" target="_blank">
+      @NEHS_16TH_VERITAS
+    </a>
+  </div>
+</footer>
+
+<script>
+  /* 滾動進場動畫 */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ============================================
+     倒數計時器
+     【要改倒數目標時間就改這裡】
+     格式：'YYYY-MM-DDTHH:MM:SS+08:00'（+08:00 是台灣時區）
+     ============================================ */
+  const targetDate = new Date('2026-05-28T13:00:00+08:00').getTime();
+
+  const elDays = document.getElementById('cd-days');
+  const elHours = document.getElementById('cd-hours');
+  const elMinutes = document.getElementById('cd-minutes');
+  const elSeconds = document.getElementById('cd-seconds');
+  const gridEl = document.getElementById('countdown-grid');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function updateCountdown() {
+    const now = Date.now();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      // 到期後的顯示：霓虹「真理已至」
+      gridEl.innerHTML =
+        '<div style="grid-column: 1 / -1;">' +
+          '<div class="countdown-ended">真 · 理 · 已 · 至</div>' +
+          '<div class="countdown-ended-sub">VERITAS IS HERE</div>' +
+        '</div>';
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    elDays.textContent = pad(days);
+    elHours.textContent = pad(hours);
+    elMinutes.textContent = pad(minutes);
+    elSeconds.textContent = pad(seconds);
+  }
+
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
